@@ -9,62 +9,61 @@ class pokemon extends StatefulWidget {
 
 class GridLayout {
   final String title;
-  final String deskripsi;
+  final String tipe;
   final String image;
 
-  GridLayout(
-      {required this.title, required this.deskripsi, required this.image});
+  GridLayout({required this.title, required this.tipe, required this.image});
 }
 
 class _pokemonState extends State<pokemon> {
   List<GridLayout> options = [
     GridLayout(
         title: 'Pikachu',
-        deskripsi: 'Listrik',
+        tipe: 'Listrik',
         image:
             'https://media.japanesestation.com/images/750x422/2016/01/Pikachu.jpg'),
     GridLayout(
         title: 'Bulbasaur',
-        deskripsi: 'Daun',
+        tipe: 'Daun',
         image:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGT410k5ydOj9UKxtlGyyvPAGzIPSH-jRmppzq9qnClSevwDgmP8p70iYvgSDd_I2DCyI&usqp=CAU'),
     GridLayout(
         title: 'Charmander',
-        deskripsi: 'Api ',
+        tipe: 'Api ',
         image:
             'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/03/15/charmanderPNG-871864289.png'),
     GridLayout(
         title: 'Raichu',
-        deskripsi: 'Listrik',
+        tipe: 'Listrik',
         image:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Cn6pTedJhDxsH88DoEWQYOGx617f9eo0bw&usqp=CAU'),
     GridLayout(
         title: 'Nidorina',
-        deskripsi: 'Racun',
+        tipe: 'Racun',
         image:
             'https://e1.pxfuel.com/desktop-wallpaper/915/105/desktop-wallpaper-30-nidorina-by-vinailt-nidorina-thumbnail.jpg'),
     GridLayout(
         title: 'Butterfree',
-        deskripsi: 'Serangga',
+        tipe: 'Serangga',
         image:
             'https://facts.net/wp-content/uploads/2023/07/13-facts-about-butterfree-1689697080.jpg'),
     GridLayout(
         title: 'Pidgeot',
-        deskripsi: 'Normal - Terbang',
+        tipe: 'Normal - Terbang',
         image:
             'https://staticg.sportskeeda.com/editor/2023/02/8a69d-16764792324707-1920.jpg?w=840'),
     GridLayout(
         title: 'Squirtle',
-        deskripsi: 'Air',
+        tipe: 'Air',
         image: 'https://images2.alphacoders.com/437/437300.jpg'),
     GridLayout(
         title: 'Omanyte',
-        deskripsi: 'Batu - Air',
+        tipe: 'Batu - Air',
         image:
             'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5da9cb0a-4906-4d1f-ac99-0da006178dfc/ddi7bft-faaf0c7d-3ec3-4b22-a90e-c12e27b2adff.png/v1/fill/w_1280,h_1050,q_80,strp/omanyte_by_flowfell_ddi7bft-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA1MCIsInBhdGgiOiJcL2ZcLzVkYTljYjBhLTQ5MDYtNGQxZi1hYzk5LTBkYTAwNjE3OGRmY1wvZGRpN2JmdC1mYWFmMGM3ZC0zZWMzLTRiMjItYTkwZS1jMTJlMjdiMmFkZmYucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.SYz8ft-0gnD2xoeKHZSSEvIJqmhRYP-YOOLYPKrFf1U'),
     GridLayout(
         title: 'Ditto',
-        deskripsi: 'Normal',
+        tipe: 'Normal',
         image:
             'https://staticg.sportskeeda.com/editor/2023/03/cd353-16794315445877-1920.jpg'),
   ];
@@ -135,7 +134,7 @@ class _pokemonState extends State<pokemon> {
                         height: 8.0,
                       ),
                       Text(
-                        option.deskripsi,
+                        option.tipe,
                       ),
                     ],
                   ),
@@ -190,7 +189,6 @@ class _pokemonState extends State<pokemon> {
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(
                           top: 10,
-                          right: 10,
                         ),
                         //padding: EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width / 0.5,
@@ -231,7 +229,7 @@ class _pokemonState extends State<pokemon> {
                               height: 10,
                             ),
                             Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SizedBox(
                                   height:
