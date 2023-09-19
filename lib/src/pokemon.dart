@@ -169,9 +169,11 @@ class _pokemonState extends State<pokemon> {
                       Text(
                         "Pokemon",
                         style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black),
+                          fontSize: 16,
+                          fontFamily: "Slab Serif",
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
                       ),
                     ],
                   ),
@@ -262,30 +264,121 @@ class _pokemonState extends State<pokemon> {
 
 class _DetailPokemon extends StatelessWidget {
   final GridLayout _gridLayout;
+
   const _DetailPokemon(this._gridLayout);
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          title: Text(_gridLayout.title),
+      appBar: AppBar(
+        title: Text(_gridLayout.title),
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(
+          20,
         ),
-        body: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: Image.network(
-                    _gridLayout.image,
-                    fit: BoxFit.cover,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 1.15,
+                    child: Image.network(
+                      _gridLayout.image,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-              ],
-            )
-          ],
-        ));
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Deskripsi",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Kekuatan",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Kelemahan",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
