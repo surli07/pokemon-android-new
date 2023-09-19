@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_coba/src/edit.dart';
 import 'package:flutter_coba/src/pokemon.dart';
 
 void main() {
   // runApp(const MyApp());
-  runApp(const MaterialApp(home: pokemon(),));
+  runApp(const MaterialApp(
+    home: pokemon(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
