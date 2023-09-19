@@ -189,6 +189,7 @@ class _pokemonState extends State<pokemon> {
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(
                           top: 10,
+                          right: 10,
                         ),
                         //padding: EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width / 0.5,
