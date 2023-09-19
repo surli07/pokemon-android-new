@@ -27,7 +27,7 @@ class _pokemonState extends State<pokemon> {
         title: 'Bulbasaur',
         deskripsi: 'Daun',
         image:
-            'https://static.wikia.nocookie.net/pokemon/images/1/19/Ash_Bulbasaur.png/revision/latest/scale-to-width-down/1000?cb=20230211060446'),
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGT410k5ydOj9UKxtlGyyvPAGzIPSH-jRmppzq9qnClSevwDgmP8p70iYvgSDd_I2DCyI&usqp=CAU'),
     GridLayout(
         title: 'Charmander',
         deskripsi: 'Api ',
@@ -45,7 +45,7 @@ class _pokemonState extends State<pokemon> {
             'https://e1.pxfuel.com/desktop-wallpaper/915/105/desktop-wallpaper-30-nidorina-by-vinailt-nidorina-thumbnail.jpg'),
     GridLayout(
         title: 'Butterfree',
-        deskripsi: 'Serangga - Terbang',
+        deskripsi: 'Serangga',
         image:
             'https://facts.net/wp-content/uploads/2023/07/13-facts-about-butterfree-1689697080.jpg'),
     GridLayout(
@@ -128,9 +128,15 @@ class _pokemonState extends State<pokemon> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(option.title),
-                      SizedBox(height: 8.0),
-                      Text(option.deskripsi),
+                      Text(
+                        option.title,
+                      ),
+                      SizedBox(
+                        height: 8.0,
+                      ),
+                      Text(
+                        option.deskripsi,
+                      ),
                     ],
                   ),
                 ),
@@ -174,7 +180,7 @@ class _pokemonState extends State<pokemon> {
               ),
               Container(
                 margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height / 20,
+                  top: MediaQuery.of(context).size.height / 15,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
@@ -184,16 +190,19 @@ class _pokemonState extends State<pokemon> {
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(
                           top: 10,
+                          right: 10,
                         ),
-                        padding: EdgeInsets.all(20),
+                        //padding: EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width / 0.5,
                         child: Column(
                           children: [
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 SizedBox(
-                                  width: 350,
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.12,
                                   child: TextField(
                                     onChanged: (value) => runFilter(value),
                                     autocorrect: true,
@@ -261,12 +270,24 @@ class _DetailPokemon extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_gridLayout.title),
-      ),
-      body: SizedBox.expand(
-        child: Image.network(_gridLayout.image),
-      ),
-    );
+        appBar: AppBar(
+          title: Text(_gridLayout.title),
+        ),
+        body: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.network(
+                    _gridLayout.image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ));
   }
 }
