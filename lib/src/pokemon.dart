@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_coba/src/variabel.dart';
 
-class pokemon extends StatefulWidget {
-  const pokemon({super.key});
+class Pokemon extends StatefulWidget {
+  const Pokemon({super.key});
 
   @override
-  State<pokemon> createState() => _pokemonState();
+  State<Pokemon> createState() => _PokemonState();
 }
 
 class GridLayout {
@@ -15,7 +16,7 @@ class GridLayout {
   GridLayout({required this.title, required this.tipe, required this.image});
 }
 
-class _pokemonState extends State<pokemon> {
+class _PokemonState extends State<Pokemon> {
   List<GridLayout> options = [
     GridLayout(
         title: 'Pikachu',
@@ -102,7 +103,6 @@ class _pokemonState extends State<pokemon> {
         ));
   }
 
-  @override
   List<Widget> _buildGridCards(int count) {
     List<Widget> cards = List.generate(
       count,
@@ -159,6 +159,7 @@ class _pokemonState extends State<pokemon> {
             children: [
               Positioned(
                 child: Container(
+                  height: heightWidget! / 18,
                   margin: EdgeInsets.symmetric(
                     horizontal: 20,
                     vertical: 20,
@@ -190,7 +191,7 @@ class _pokemonState extends State<pokemon> {
                       Container(
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(
-                          top: 10,
+                          top: 20,
                         ),
                         //padding: EdgeInsets.all(10),
                         width: MediaQuery.of(context).size.width / 0.5,
@@ -207,7 +208,7 @@ class _pokemonState extends State<pokemon> {
                                     onChanged: (value) => runFilter(value),
                                     autocorrect: true,
                                     decoration: InputDecoration(
-                                      hintText: "search",
+                                      hintText: "Search",
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                           width: 3,
@@ -228,7 +229,7 @@ class _pokemonState extends State<pokemon> {
                               ],
                             ),
                             SizedBox(
-                              height: 10,
+                              height: 5,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -257,6 +258,11 @@ class _pokemonState extends State<pokemon> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Increment',
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
     );
   }

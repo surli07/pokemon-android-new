@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_coba/src/pokemon.dart';
+import 'package:flutter_coba/src/splash.dart';
 
 void main() {
   // runApp(const MyApp());
   runApp(const MaterialApp(
-    home: pokemon(),
+    home: Splash(),
   ));
 }
 
