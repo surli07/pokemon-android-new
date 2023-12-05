@@ -87,6 +87,64 @@ class _InformasiState extends State<Informasi> {
                                 ),
                               ],
                             ),
+                            Container(
+                              width: 300,
+                              height: 300,
+                              child: PieChart(PieChartData(
+                                centerSpaceRadius: 5,
+                                borderData: FlBorderData(show: false),
+                                sectionsSpace: 2,
+                                sections: [
+                                  PieChartSectionData(
+                                    value: 35, color: Colors.purple, radius: 100
+                                  ),
+                                  PieChartSectionData(value: 40, color: Colors.teal, radius: 100),
+                                  PieChartSectionData(value: 55, color: Colors.indigo, radius: 100),
+                                  PieChartSectionData(value: 70, color: Colors.lightGreen, radius: 100),
+                                ],
+                              )),
+                            ),
+                            Container(
+                              child: Padding(padding: const EdgeInsets.all(20),
+                              child: AspectRatio(aspectRatio: 1,
+                              child: BarChart(BarChartData(borderData: FlBorderData(
+                                border: const Border(
+                                  top: BorderSide.none,
+                                  right: BorderSide.none,
+                                  left: BorderSide(width: 1),
+                                  bottom: BorderSide(width: 1),
+                                ),
+                              ),
+                                groupsSpace: 10,
+                                barGroups: [
+                                  BarChartGroupData(x: 1,
+                                  barRods: [
+                                    BarChartRodData(fromY: 0,toY: 50, width: 15, color: Colors.cyan),
+                                  ],
+                                  ),
+                                  BarChartGroupData(x: 2,
+                                    barRods: [
+                                      BarChartRodData(fromY: 0,toY: 30, width: 15, color: Colors.cyan),
+                                    ],
+                                  ),
+                                  BarChartGroupData(x: 3,
+                                    barRods: [
+                                      BarChartRodData(fromY: 0,toY: 2, width: 15, color: Colors.cyan),
+                                    ],
+                                  ),
+                                  BarChartGroupData(x: 4,
+                                    barRods: [
+                                      BarChartRodData(fromY: 0,toY: 77.5, width: 15, color: Colors.cyan),
+                                    ],
+                                  ),
+                                  BarChartGroupData(x: 1,
+                                    barRods: [
+                                      BarChartRodData(fromY: 0,toY: 89, width: 15, color: Colors.cyan),
+                                    ],
+                                  ),
+                                ],
+                              ),),),),
+                            ),
                           ],
                         ),
                       ),
