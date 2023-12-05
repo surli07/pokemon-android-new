@@ -88,12 +88,14 @@ class _NavBarState extends State<NavBar> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      menus == 1 ? Icons.newspaper : Icons.newspaper_outlined,
+                      menus == 1
+                          ? Icons.pie_chart
+                          : Icons.pie_chart_outline_outlined,
                       color: Colors.blue[700],
                       size: 30,
                     ),
                     Text(
-                      "Berita",
+                      "Chart",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 13,
