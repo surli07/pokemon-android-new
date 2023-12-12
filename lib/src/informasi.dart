@@ -10,6 +10,7 @@ class Informasi extends StatefulWidget {
 }
 
 class _InformasiState extends State<Informasi> {
+  int touchedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +82,21 @@ class _InformasiState extends State<Informasi> {
                                         dotData: FlDotData(show: true),
                                         color: Colors.blue,
                                         barWidth: 5,
+                                      ),
+                                      LineChartBarData(
+                                        spots: const [
+                                          FlSpot(1, 5),
+                                          FlSpot(4, 1),
+                                          FlSpot(2, 8),
+                                          FlSpot(8, 9),
+                                          FlSpot(4, 4),
+                                          FlSpot(10, 3),
+                                          FlSpot(6, 2),
+                                        ],
+                                        isCurved: true,
+                                        dotData: FlDotData(show: true),
+                                        color: Colors.green,
+                                        barWidth: 5,
                                       )
                                     ])),
                                   ),
@@ -90,60 +106,132 @@ class _InformasiState extends State<Informasi> {
                             Container(
                               width: 300,
                               height: 300,
-                              child: PieChart(PieChartData(
-                                centerSpaceRadius: 5,
-                                borderData: FlBorderData(show: false),
-                                sectionsSpace: 2,
-                                sections: [
-                                  PieChartSectionData(
-                                    value: 35, color: Colors.purple, radius: 100
+                              child: PieChart(
+                                PieChartData(
+                                  pieTouchData: PieTouchData(
+                                    touchCallback:
+                                        (FlTouchEvent event, pieTouchResponse) {
+                                      setState(() {
+                                        if (!event
+                                                .isInterestedForInteractions ||
+                                            pieTouchResponse == null ||
+                                            pieTouchResponse.touchedSection ==
+                                                null) {
+                                          touchedIndex = -1;
+                                          return;
+                                        }
+                                        touchedIndex = pieTouchResponse
+                                            .touchedSection!
+                                            .touchedSectionIndex;
+                                      });
+                                    },
                                   ),
-                                  PieChartSectionData(value: 40, color: Colors.teal, radius: 100),
-                                  PieChartSectionData(value: 55, color: Colors.indigo, radius: 100),
-                                  PieChartSectionData(value: 70, color: Colors.lightGreen, radius: 100),
-                                ],
-                              )),
-                            ),
-                            Container(
-                              child: Padding(padding: const EdgeInsets.all(20),
-                              child: AspectRatio(aspectRatio: 1,
-                              child: BarChart(BarChartData(borderData: FlBorderData(
-                                border: const Border(
-                                  top: BorderSide.none,
-                                  right: BorderSide.none,
-                                  left: BorderSide(width: 1),
-                                  bottom: BorderSide(width: 1),
+                                  borderData: FlBorderData(
+                                    show: false,
+                                  ),
+                                  sectionsSpace: 0,
+                                  centerSpaceRadius: 40,
+                                  sections: [
+                                    PieChartSectionData(
+                                        value: 35,
+                                        color: Colors.purple,
+                                        radius: 100,
+                                        titleStyle:
+                                            TextStyle(color: Colors.white)),
+                                    PieChartSectionData(
+                                        value: 40,
+                                        color: Colors.teal,
+                                        radius: 100,
+                                        titleStyle:
+                                            TextStyle(color: Colors.white)),
+                                    PieChartSectionData(
+                                        value: 55,
+                                        color: Colors.indigo,
+                                        radius: 100,
+                                        titleStyle:
+                                            TextStyle(color: Colors.white)),
+                                    PieChartSectionData(
+                                        value: 70,
+                                        color: Colors.lightGreen,
+                                        radius: 100,
+                                        titleStyle:
+                                            TextStyle(color: Colors.white)),
+                                  ],
                                 ),
                               ),
-                                groupsSpace: 10,
-                                barGroups: [
-                                  BarChartGroupData(x: 1,
-                                  barRods: [
-                                    BarChartRodData(fromY: 0,toY: 50, width: 15, color: Colors.cyan),
-                                  ],
+                            ),
+                            Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: AspectRatio(
+                                  aspectRatio: 1,
+                                  child: BarChart(
+                                    BarChartData(
+                                      borderData: FlBorderData(
+                                        border: const Border(
+                                          top: BorderSide.none,
+                                          right: BorderSide.none,
+                                          left: BorderSide(width: 1),
+                                          bottom: BorderSide(width: 1),
+                                        ),
+                                      ),
+                                      groupsSpace: 10,
+                                      barGroups: [
+                                        BarChartGroupData(
+                                          x: 1,
+                                          barRods: [
+                                            BarChartRodData(
+                                                fromY: 0,
+                                                toY: 50,
+                                                width: 15,
+                                                color: Colors.cyan),
+                                          ],
+                                        ),
+                                        BarChartGroupData(
+                                          x: 2,
+                                          barRods: [
+                                            BarChartRodData(
+                                                fromY: 0,
+                                                toY: 30,
+                                                width: 15,
+                                                color: Colors.cyan),
+                                          ],
+                                        ),
+                                        BarChartGroupData(
+                                          x: 3,
+                                          barRods: [
+                                            BarChartRodData(
+                                                fromY: 0,
+                                                toY: 2,
+                                                width: 15,
+                                                color: Colors.cyan),
+                                          ],
+                                        ),
+                                        BarChartGroupData(
+                                          x: 4,
+                                          barRods: [
+                                            BarChartRodData(
+                                                fromY: 0,
+                                                toY: 77.5,
+                                                width: 15,
+                                                color: Colors.cyan),
+                                          ],
+                                        ),
+                                        BarChartGroupData(
+                                          x: 1,
+                                          barRods: [
+                                            BarChartRodData(
+                                                fromY: 0,
+                                                toY: 89,
+                                                width: 15,
+                                                color: Colors.cyan),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  BarChartGroupData(x: 2,
-                                    barRods: [
-                                      BarChartRodData(fromY: 0,toY: 30, width: 15, color: Colors.cyan),
-                                    ],
-                                  ),
-                                  BarChartGroupData(x: 3,
-                                    barRods: [
-                                      BarChartRodData(fromY: 0,toY: 2, width: 15, color: Colors.cyan),
-                                    ],
-                                  ),
-                                  BarChartGroupData(x: 4,
-                                    barRods: [
-                                      BarChartRodData(fromY: 0,toY: 77.5, width: 15, color: Colors.cyan),
-                                    ],
-                                  ),
-                                  BarChartGroupData(x: 1,
-                                    barRods: [
-                                      BarChartRodData(fromY: 0,toY: 89, width: 15, color: Colors.cyan),
-                                    ],
-                                  ),
-                                ],
-                              ),),),),
+                                ),
+                              ),
                             ),
                           ],
                         ),
